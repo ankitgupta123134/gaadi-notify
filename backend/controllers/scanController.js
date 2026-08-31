@@ -94,7 +94,7 @@ export const scanAndNotify = async (req, res) => {
     );
 
 
-    await sendNotificationEmail(owner.email, owner.name, owner.numberPlate);
+   sendNotificationEmail(owner.email, owner.name, owner.numberPlate);
 
     res.json({
       message: "Owner has been notified successfully.",

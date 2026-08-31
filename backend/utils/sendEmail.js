@@ -4,13 +4,17 @@ export const sendNotificationEmail = async (ownerEmail, ownerName, numberPlate) 
   try {
     // transporter is created here (not at file top) so .env is
     // guaranteed to be loaded by the time this runs
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
+  const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+  family: 4,
+  connectionTimeout: 8000,
+  greetingTimeout: 8000,
+  socketTimeout: 8000,
+});
 
     await transporter.sendMail({
       from: `"Gaadi Notify" <${process.env.EMAIL_USER}>`,
