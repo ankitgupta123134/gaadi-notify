@@ -1,0 +1,285 @@
+/* ==========================================
+   GAADINOTIFY PREMIUM ANIMATED BACKGROUND
+========================================== */
+
+.animated-background {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: -10;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      #111936 0%,
+      #070d20 45%,
+      #020617 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ==========================================
+   AURORA LIGHTS
+========================================== */
+
+.aurora {
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  opacity: 0.22;
+
+  animation: auroraFloat 14s ease-in-out infinite alternate;
+}
+
+
+/* Blue */
+
+.aurora-one {
+  top: -300px;
+  left: -200px;
+
+  background: #2563eb;
+
+  animation-duration: 16s;
+}
+
+
+/* Purple */
+
+.aurora-two {
+  top: -250px;
+  right: -250px;
+
+  background: #7c3aed;
+
+  animation-duration: 19s;
+
+  animation-delay: -4s;
+}
+
+
+/* Pink/Purple */
+
+.aurora-three {
+  bottom: -400px;
+  left: 35%;
+
+  background: #9333ea;
+
+  opacity: 0.14;
+
+  animation-duration: 22s;
+
+  animation-delay: -8s;
+}
+
+
+@keyframes auroraFloat {
+
+  0% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  25% {
+    transform:
+      translate(100px, 60px)
+      scale(1.08);
+  }
+
+  50% {
+    transform:
+      translate(-70px, 130px)
+      scale(0.95);
+  }
+
+  75% {
+    transform:
+      translate(120px, -60px)
+      scale(1.1);
+  }
+
+  100% {
+    transform:
+      translate(-40px, 80px)
+      scale(1);
+  }
+}
+
+
+/* ==========================================
+   DIGITAL GRID
+========================================== */
+
+.digital-grid {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(99, 102, 241, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(99, 102, 241, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 80%
+    );
+
+  animation: gridMove 20s linear infinite;
+}
+
+
+@keyframes gridMove {
+
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(42px, 42px);
+  }
+}
+
+
+/* ==========================================
+   FLOATING PARTICLES
+========================================== */
+
+.particles {
+  position: absolute;
+
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #818cf8;
+
+  box-shadow:
+    0 0 8px #6366f1,
+    0 0 15px rgba(99, 102, 241, 0.5);
+
+  opacity: 0;
+
+  animation:
+    particleFloat
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes particleFloat {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.5);
+  }
+
+  25% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 0.3;
+
+    transform:
+      translateY(-50px)
+      scale(1);
+  }
+
+  75% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-100px)
+      scale(0.4);
+  }
+}
+
+
+/* ==========================================
+   CURSOR GLOW
+========================================== */
+
+.cursor-glow {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.12) 0%,
+      rgba(99, 102, 241, 0.05) 35%,
+      transparent 70%
+    );
+
+  filter: blur(15px);
+
+  transition:
+    left 0.25s ease-out,
+    top 0.25s ease-out;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .aurora {
+    width: 450px;
+    height: 450px;
+
+    filter: blur(80px);
+  }
+
+  .digital-grid {
+    background-size: 32px 32px;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+}

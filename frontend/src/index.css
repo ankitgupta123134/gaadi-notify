@@ -1,0 +1,618 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0a0b0f;
+  --bg-card: #14161f;
+  --bg-card-hover: #1a1d2a;
+  --border: #262a3a;
+  --accent: #6366f1;
+  --accent-hover: #7c7ff0;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+  --text: #f1f2f6;
+  --text-muted: #8b8fa3;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --radius: 14px;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at 20% 0%, #1a1d3a 0%, var(--bg) 45%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 60px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #a5b4fc, #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-icon {
+  font-size: 32px;
+  -webkit-text-fill-color: initial;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px;
+}
+
+.nav-link {
+  padding: 8px 18px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Cards (auth / scan) */
+.auth-card,
+.scan-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInUp 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.auth-card h2,
+.scan-card h2 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0d0e14;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+}
+
+button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: #33364a;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 13px;
+  margin: 0;
+}
+
+.status {
+  margin-top: 18px;
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  animation: fadeInUp 0.3s ease;
+}
+
+.preview-img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+}
+
+a {
+  color: var(--accent-hover);
+}
+
+/* History */
+.history-page,
+.admin-page {
+  width: 100%;
+  max-width: 640px;
+  animation: fadeInUp 0.4s ease;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-family: inherit;
+}
+
+.incident-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.incident-card {
+  display: flex;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: left;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.incident-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.evidence-thumb {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.incident-details p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.date {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Admin */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 12px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent-hover);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+}
+
+.most-reported {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.most-reported h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.most-reported ul {
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.search-bar select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #0d0e14;
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-family: inherit;
+}
+
+.search-bar button {
+  margin-top: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   GaadiNotify Animated Aurora Background
+========================================= */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: #020617;
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Main animated glow */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: -50%;
+
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(56, 189, 248, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(129, 140, 248, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(192, 132, 252, 0.14),
+      transparent 25%
+    );
+
+  filter: blur(50px);
+
+  animation: auroraMove 12s ease-in-out infinite alternate;
+}
+
+/* Technical grid */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+
+  pointer-events: none;
+}
+
+/* Aurora movement */
+
+@keyframes auroraMove {
+  0% {
+    transform: translate(-3%, -2%) scale(1);
+  }
+
+  25% {
+    transform: translate(4%, -5%) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-2%, 4%) scale(1.08);
+  }
+
+  75% {
+    transform: translate(5%, 2%) scale(1.04);
+  }
+
+  100% {
+    transform: translate(-3%, -3%) scale(1.1);
+  }
+}
+
+/* =========================================
+   GAADINOTIFY BUTTON ANIMATIONS
+========================================= */
+
+button,
+.btn,
+button[type="submit"],
+input[type="submit"] {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Hover */
+
+button:hover,
+.btn:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 8px 25px rgba(99, 102, 241, 0.25);
+}
+
+/* Click */
+
+button:active,
+.btn:active,
+button[type="submit"]:active,
+input[type="submit"]:active {
+  transform: translateY(1px) scale(0.98);
+
+  box-shadow:
+    0 3px 10px rgba(99, 102, 241, 0.2);
+}
+
+/* Shine effect */
+
+button::after,
+.btn::after,
+button[type="submit"]::after,
+input[type="submit"]::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+
+  pointer-events: none;
+}
+
+button:hover::after,
+.btn:hover::after,
+button[type="submit"]:hover::after,
+input[type="submit"]:hover::after {
+  left: 140%;
+}
+
+
+/* =========================================
+   LOADING BUTTON
+========================================= */
+
+button.loading {
+  pointer-events: none;
+
+  opacity: 0.8;
+}
+
+button.loading::before {
+  content: "";
+
+  width: 15px;
+  height: 15px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  display: inline-block;
+
+  margin-right: 8px;
+
+  vertical-align: middle;
+
+  animation: buttonSpinner 0.7s linear infinite;
+}
+
+@keyframes buttonSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   DISABLED
+========================================= */
+
+button:disabled,
+.btn:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.5;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+/* =========================================
+   GAADINOTIFY PAGE TRANSITION
+========================================= */
+
+.page-transition {
+  animation: pageEnter 0.45s ease-out;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

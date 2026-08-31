@@ -1,0 +1,92 @@
+.developer-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.built-text {
+  font-size: 14px;
+  color: #94a3b8;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.developer-name {
+  margin-top: 8px;
+  font-size: 32px;
+  font-weight: 800;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #818cf8,
+    #c084fc,
+    #38bdf8
+  );
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation:
+    nameReveal 1s ease forwards,
+    gradientMove 4s linear infinite;
+}
+
+.developer-line {
+  width: 0;
+  height: 2px;
+  margin-top: 10px;
+  background: #38bdf8;
+
+  animation: lineGrow 1s ease 0.7s forwards;
+}
+
+@keyframes nameReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 300%;
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 180px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
